@@ -18,4 +18,8 @@ export class PokapiService {
   getPokemonDetails(url: string): Observable<any> {
     return this.http.get(url);
   }
+  getPokemonDetailsByName(name: string): Observable<any> {
+    const url = `${this.apiUrl}/pokemon/${name}`;
+    return this.http.get(url);
+  }
 }

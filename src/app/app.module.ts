@@ -10,13 +10,14 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PokemonListComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    PokemonListComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

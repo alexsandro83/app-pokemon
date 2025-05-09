@@ -1,15 +1,42 @@
-<h2>Lista de Pokémon</h2>
+<h2>Buscar Pokémon</h2>
+
+<input type="text" [(ngModel)]="searchTerm" placeholder="Nome do Pokémon" (keyup.enter)="searchPokemon()">
+<button (click)="searchPokemon()">Buscar</button>
+
+<div *ngIf="loading">
+  Carregando...
+</div>
 
 <div *ngIf="errorMessage" style="color: red;">
   {{ errorMessage }}
 </div>
 
-<ul *ngIf="pokemonList.length > 0">
-  <li *ngFor="let pokemon of pokemonList">
-    {{ pokemon.name | titlecase }} - <a [href]="pokemon.url" target="_blank">Detalhes</a>
-  </li>
-</ul>
+<div *ngIf="pokemonDetails">
+  <h3>{{ pokemonDetails.name | titlecase }}</h3>
+  <img *ngIf="pokemonDetails.sprites?.front_default" [src]="pokemonDetails.sprites.front_default" alt="{{ pokemonDetails.name }}">
+  <p><strong>Peso:</strong> {{ pokemonDetails.weight }}</p>
+  <p><strong>Altura:</strong> {{ pokemonDetails.height }}</p>
+  <p><strong>Tipos:</strong>
+    <span *ngFor="let type of pokemonDetails.types; let i = index">
+      {{ type.type.name | titlecase }}{{ i < pokemonDetails.types.length - 1 ? ', ' : '' }}
+    </span>
+  </p>
+  <p><strong>Habilidades:</strong>
+    <span *ngFor="let ability of pokemonDetails.abilities; let i = index">
+      {{ ability.ability.name | titlecase }}{{ i < pokemonDetails.abilities.length - 1 ? ', ' : '' }}
+    </span>
+  </p>
+  <p><strong>Experiência Base:</strong> {{ pokemonDetails.base_experience }}</p>
+</div>
 
-<p *ngIf="!pokemonList || pokemonList.length === 0 && !errorMessage">
-  Carregando a lista de Pokémon...
-</p>
+<div *ngIf="!pokemonDetails && !errorMessage">
+  <h2>Lista de Pokémon</h2>
+  <ul *ngIf="pokemonList.length > 0">
+    <li *ngFor="let pokemon of pokemonList">
+      {{ pokemon.name | titlecase }} - <a [href]="pokemon.url" target="_blank">Detalhes</a>
+    </li>
+  </ul>
+  <p *ngIf="!pokemonList || pokemonList.length === 0 && !errorMessage && !loading">
+    A lista de Pokémon está vazia.
+  </p>
+</div>
