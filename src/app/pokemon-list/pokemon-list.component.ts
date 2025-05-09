@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-pokemon-list',
-  standalone: true, // Certifique-se que standalone está como true
-  imports: [NgIf, NgFor, TitleCasePipe, FormsModule], // Importe NgIf, NgFor e TitleCasePipe aqui
+  standalone: true,
+  imports: [NgIf, NgFor, TitleCasePipe, FormsModule],
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['./pokemon-list.component.css']
 })
@@ -21,6 +21,12 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadInitialPokemonList();
+  }
+
+  // Adicione este novo método
+  showPokemonDetails(pokemonName: string): void {
+    this.searchTerm = pokemonName;
+    this.searchPokemon();
   }
 
   loadInitialPokemonList() {
@@ -38,10 +44,16 @@ export class PokemonListComponent implements OnInit {
     });
   }
 
+  onSearchChange(): void {
+    if (this.searchTerm.trim() === '') {
+      this.resetToInitialList();
+    }
+  }
+
   searchPokemon() {
     if (this.searchTerm.trim() !== '') {
       this.loading = true;
-      this.pokemonDetails = null; // Limpa os detalhes anteriores
+      this.pokemonDetails = null;
       this.pokapiService.getPokemonDetailsByName(this.searchTerm.toLowerCase()).subscribe({
         next: (data: any) => {
           this.pokemonDetails = data;
@@ -56,9 +68,15 @@ export class PokemonListComponent implements OnInit {
         }
       });
     } else {
-      this.pokemonDetails = null;
-      this.errorMessage = '';
-      this.loadInitialPokemonList(); // Se o campo de busca estiver vazio, volta a lista inicial
+      this.resetToInitialList();
+    }
+  }
+
+  private resetToInitialList(): void {
+    this.pokemonDetails = null;
+    this.errorMessage = '';
+    if (this.pokemonList.length === 0) {
+      this.loadInitialPokemonList();
     }
   }
 }

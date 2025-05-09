@@ -1,69 +1,25 @@
-.search-container {
-  display: flex;
-  margin-bottom: 20px;
-}
-
-.search-input {
-  flex-grow: 1;
+.pokemon-stats {
+  margin-top: 15px;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px 0 0 5px;
-  font-size: 16px;
-  outline: none;
+  background-color: #f5f5f5;
+  border-radius: 8px;
 }
 
-.search-button {
-  background-color: #4CAF50; /* Cor verde */
+.type-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 0 5px;
+  border-radius: 15px;
   color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-.search-button:hover {
-  background-color: #45a049;
-}
-
-.pokemon-details {
-  margin-top: 20px;
-  padding: 15px;
-  border: 1px solid #eee;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}
-
-.pokemon-details h3 {
-  margin-top: 0;
-  color: #333;
-}
-
-.pokemon-details img {
-  max-width: 150px;
-  height: auto;
-  display: block;
-  margin: 10px auto;
-}
-
-.pokemon-details p {
-  margin: 5px 0;
-  color: #555;
-}
-
-.pokemon-details strong {
-  font-weight: bold;
-  color: #333;
-}
-
-.pokemon-list-container {
-  margin-top: 20px;
-}
-
-.pokemon-list-container h2 {
-  color: #333;
-}
+/* Cores para diferentes tipos de Pokémon */
+.type-normal { background-color: #A8A878; }
+.type-fire { background-color: #F08030; }
+.type-water { background-color: #6890F0; }
+.type-electric { background-color: #F8D030; }
+/* Adicione outras classes de tipo conforme necessário */
 
 .pokemon-list {
   list-style: none;
@@ -71,31 +27,27 @@
 }
 
 .pokemon-list li {
-  padding: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
   border-bottom: 1px solid #eee;
 }
 
-.pokemon-list li:last-child {
-  border-bottom: none;
+.pokemon-name {
+  flex-grow: 1;
 }
 
-.pokemon-list li a {
-  color: #007bff;
-  text-decoration: none;
+button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.pokemon-list li a:hover {
-  text-decoration: underline;
-}
-
-.loading {
-  margin-top: 10px;
-  font-style: italic;
-  color: #777;
-}
-
-.error-message {
-  color: red;
-  margin-top: 10px;
-  font-weight: bold;
+button:hover {
+  background-color: #45a049;
 }

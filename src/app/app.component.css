@@ -1,0 +1,24 @@
+/* Estilos para o componente AppComponent */
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ff6f61; /* Um tom de vermelho/laranja vibrante para o título */
+}
+
+/* Opcional: Estilos para o container principal, se você não estiver usando estilos globais */
+/* .container {
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} */
+
+/* Estilos para o componente pokemon-list (ou qualquer outro conteúdo principal) */
+app-pokemon-list {
+  display: block; /* Garante que o componente ocupe a largura total disponível */
+  margin: 20px auto; /* Centraliza o componente na página */
+  /* Outros estilos que você queira aplicar globalmente, mas apenas dentro do app-component */
+}
