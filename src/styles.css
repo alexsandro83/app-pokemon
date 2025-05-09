@@ -1,1 +1,85 @@
-/* You can add global styles to this file, and also import other style files */
+/* Estilos globais para a aplicação Pokémon */
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  background-color: #f4f4f4; /* Um cinza claro como fundo */
+  color: #333; /* Cor de texto padrão */
+}
+
+.container {
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff; /* Fundo branco para o conteúdo principal */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+  color: #e91e63; /* Uma cor vibrante para títulos (rosa) - você pode mudar */
+  margin-bottom: 15px;
+}
+
+a {
+  color: #2196f3; /* Azul para links */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: #007bff; /* Azul para botões */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  width: 100%; /* Para ocupar a largura do container pai */
+  box-sizing: border-box; /* Para que padding e border não aumentem a largura */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* Cores temáticas (você pode definir sua paleta) */
+:root {
+  --primary-color: #e91e63; /* Rosa primário */
+  --secondary-color: #007bff; /* Azul secundário */
+  --text-color: #333;
+  --background-color: #f4f4f4;
+  --white: #fff;
+  --light-gray: #ccc;
+}
+
+/* Exemplo de como usar as variáveis de cor */
+/* body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+h1 {
+  color: var(--primary-color);
+} */
