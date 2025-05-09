@@ -1,0 +1,15 @@
+<h2>Lista de Pokémon</h2>
+
+<div *ngIf="errorMessage" style="color: red;">
+  {{ errorMessage }}
+</div>
+
+<ul *ngIf="pokemonList.length > 0">
+  <li *ngFor="let pokemon of pokemonList">
+    {{ pokemon.name | titlecase }} - <a [href]="pokemon.url" target="_blank">Detalhes</a>
+  </li>
+</ul>
+
+<p *ngIf="!pokemonList || pokemonList.length === 0 && !errorMessage">
+  Carregando a lista de Pokémon...
+</p>
